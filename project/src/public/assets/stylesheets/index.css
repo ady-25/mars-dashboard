@@ -1,28 +1,199 @@
 /* -------------------  MOBILE  --------------------- */
+.michroma-regular {
+  font-family: "Michroma", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
 body {
   display: flex;
   flex-direction: column;
-  font-family: Arial;
+  font-family: "Michroma", sans-serif;
+  font-size: 14px;;
   min-height: 100vh;
+  background-color: #000;
+  background-image: radial-gradient(#181818 .1%, transparent 5%), radial-gradient(#181818 .1%, transparent 5%);
+  background-size: 40px 40px;
+  background-position: 0 0, 25px 25px;
+  color: #fff;
+  font-size: 16px;
+  margin: 0;;
 }
 
-header {
-  /* header styles */
+h1 {
+  border-left: 10px solid #2e2e2e;
+  position: relative;
+  font-size: 28px;
+  padding: 10px 0 10px 20px;
+  margin: 0 auto;
+  background: rgba(45, 45, 45, 0.5);
+}
+
+
+@keyframes move {
+    100% {
+        transform: translate3d(0, 0, 1px) rotate(360deg);
+    }
+}
+.background {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+.background span {
+  width: 5vmin;
+  height: 5vmin;
+  border-radius: 5vmin;
+  backface-visibility: hidden;
+  position: absolute;
+  animation: move;
+  animation-duration: 35s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.background span:nth-child(1) {
+  color: #565f4a;
+  top: 73%;
+  left: 22%;
+  animation-duration: 25s;
+  animation-delay: -10s;
+  transform-origin: -7vw -3vh;
+  box-shadow: 10vmin 0 1.374049801392962vmin currentColor;
+}
+.background span:nth-child(2) {
+  color: #352a23;
+  top: 43%;
+  left: 60%;
+  animation-duration: 16s;
+  animation-delay: -25s;
+  transform-origin: -1vw 15vh;
+  box-shadow: 10vmin 0 1.4056330428296133vmin currentColor;
+}
+.background span:nth-child(3) {
+  color: #64789b;
+  top: 23%;
+  left: 70%;
+  animation-duration: 8s;
+  animation-delay: -22s;
+  transform-origin: 3vw -7vh;
+  box-shadow: -10vmin 0 1.7347168508937938vmin currentColor;
+}
+.background span:nth-child(4) {
+  color: #626262;
+  top: 35%;
+  left: 15%;
+  animation-duration: 28s;
+  animation-delay: -8s;
+  transform-origin: 5vw -9vh;
+  box-shadow: 10vmin 0 1.5526444648561402vmin currentColor;
+}
+.background span:nth-child(5) {
+  color: #987d9c;
+  top: 56%;
+  left: 42%;
+  animation-duration: 13s;
+  animation-delay: -5s;
+  transform-origin: 14vw 23vh;
+  box-shadow: 10vmin 0 1.3006089015604405vmin currentColor;
 }
 
 main {
   flex: 1;
-  padding: 20px;
+  position: relative;
+  max-width: 1224px;
+  margin: 0 auto;
+}
+section {
+  position: relative;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+h2 {
+  border-left: 10px solid #2e2e2e;
+  position: relative;
+  padding: 10px 0 10px 20px;
+  margin: 40px auto 0;
+  background: rgba(45, 45, 45, 0.2);
+}
+h3 {
+  border-left: 10px solid #2e2e2e;
+  position: relative;
+  padding: 10px 0 10px 20px;
+  margin: 40px auto 0;
+  background: rgba(45, 45, 45, 0.2);
+}
+h4 {
+  border-left: 10px solid #2e2e2e;
+  position: relative;
+  padding: 10px 0 10px 20px;
+  margin: 40px auto 0;
+  background: rgba(45, 45, 45, 0.2);
+}
+button {
+  background-color: rgba(45, 45, 45, 0.4);
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 10px;
+  font-family: "Michroma", sans-serif;
+  border: 3px solid #2e2e2e;
+  box-shadow: 0px 0px 20px 3px rgba(255,255,255,0);
+  transition: all 0.3s ease;
+  text-align: center;
+  width: 90%;
+}
+button:hover {
+  background-color: rgba(45, 45, 45, 0.8);
+  color: #fff;
+  box-shadow: 0px 0px 20px 3px rgba(255,255,255,0.6);
+}
+div#rover-info p {
+  font-size: 12px;
+  line-height: 14px;
+}
+div#rover-photos .photos {
+  display: grid; 
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+  gap: 10px;
+}
+div#rover-photos p {
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid #2e2e2e;
+  padding: 10px;
+}
+
+img {
+  padding: 5px;
+  border: 1px solid #2e2e2e;
+  width: 95%;
+  height: auto;
+  display: block;
+  margin: 10px auto 0;
 }
 
 footer {
-  /* footer styles */
+    background: #2e2e2e;
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+    border-top: 2px solid #999;
 }
 
 /* -------------------  TABLET  --------------------- */
 @media (min-width: 768px) {
-  /* use mobile */
+  div#rover-buttons {
+    display: flex;
+  }
+  div#rover-info {
+    margin: 0 auto;
+    max-width: 430px;
+  }
 }
 
 /* -------------------  DESKTOP  -------------------- */

@@ -6,11 +6,10 @@ const path = require('path')
 
 const app = express()
 const port = 3000
+const today = new Date().toLocaleDateString('en-CA');
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-
-app.use('/', express.static(path.join(__dirname, '../public')))
 
 // your API calls
 
@@ -23,6 +22,20 @@ app.get('/apod', async (req, res) => {
     } catch (err) {
         console.log('error:', err);
     }
-})
+});
 
+app.get('/rover/:name', async (req, res) => {
+    try {
+        const roverName = req.params.name;
+        console.log("Fetching rover:", roverName);
+
+        let roverData  = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/${roverName}/photos?earth_date=${today}=1000&api_key=${process.env.API_KEY}`)
+            .then(res => res.json())
+        res.send({ rover: roverData  })
+    } catch (err) {
+        console.log('error:', err);
+    }
+});
+
+app.use('/', express.static(path.join(__dirname, '../public')))
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
